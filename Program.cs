@@ -1,25 +1,29 @@
-using LR1;
+using LR3;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddTransient<CalcService>();
+builder.Services.AddTransient<TimeService>();
 var app = builder.Build();
 
 //INTRO
-app.MapGet("/", () => "LR1 Kutsev 310");
+app.MapGet("/", () => "LR3 Kutsev 310");
 
 //TASK 1
-app.MapGet("/task1", async (context) =>
+double a = 4, b = 5;
+app.MapGet("/task1", async (context) => 
 {
-    Company company = new Company();
-    company.Name = "Google";
-    company.Workers = 187000;
-    await context.Response.WriteAsync($"{company.GetInfo()}");
+    var calcService = app.Services.GetService<CalcService>();
+    await context.Response.WriteAsync($"Sum: {a}+{b}={calcService?.Plus(a,b)}\n" +
+        $"Dif: {a}-{b}={calcService?.Minus(a, b)}\n" +
+        $"Mul: {a}*{b}={calcService?.Multiply(a, b)}\n" +
+        $"Div: {a}/{b}={calcService?.Divide(a, b)}\n");
 });
 
 //TASK 2
-app.MapGet("/task2", async (context) =>
+app.MapGet("/task2", async (context) => 
 {
-    Random rnd = new Random();
-    int result = rnd.Next(1, 101);
-    await context.Response.WriteAsync($"Random number: {result}");
+    var timeService = app.Services.GetService<TimeService>();
+    await context.Response.WriteAsync($"{timeService?.GetDayTime()}");
 });
 
-app.Run(); 
+app.Run();
