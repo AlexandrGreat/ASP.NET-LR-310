@@ -14,7 +14,7 @@ var google = new Company();
 app.Configuration.Bind(google);
 
 //INTRO
-app.MapGet("/", () => "LR2 Kutsev 310");
+app.MapGet("/", () => "Welcome to LR2");
 
 //TASK1
 app.MapGet("/task1", async (context) => {
