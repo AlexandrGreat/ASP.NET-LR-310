@@ -6,7 +6,7 @@ builder.Services.AddTransient<TimeService>();
 var app = builder.Build();
 
 //INTRO
-app.MapGet("/", () => "LR3 Kutsev 310");
+app.MapGet("/", () => "Welcome to LR3");
 
 //TASK 1
 double a = 4, b = 5;
