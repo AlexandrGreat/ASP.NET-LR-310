@@ -3,7 +3,7 @@ var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
 //INTRO
-app.MapGet("/", () => "LR1 Kutsev 310");
+app.MapGet("/", () => "Welcome to LR1");
 
 //TASK 1
 app.MapGet("/task1", async (context) =>
