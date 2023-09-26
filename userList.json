@@ -1,0 +1,34 @@
+{
+ "users": [
+  {
+    "name": "RandomReader0",
+    "mail": "notarealmailadress000@notamail.notcom",
+    "registrationdate": "01.01.2000"
+  },
+  {
+    "name": "JustReader1",
+    "mail": "notarealmailadress111@notamail.notcom",
+    "registrationdate": "01.01.2001"
+  },
+  {
+    "name": "HelloReader2",
+    "mail": "notarealmailadress222@notamail.notcom",
+    "registrationdate": "02.02.2002"
+  },
+  {
+    "name": "ReadingReader3",
+    "mail": "notarealmailadress333@notamail.notcom",
+    "registrationdate": "03.03.2003"
+  },
+  {
+    "name": "StrangeReader4",
+    "mail": "notarealmailadress444@notamail.notcom",
+    "registrationdate": "04.04.2004"
+  },
+  {
+    "name": "TheReader5",
+    "mail": "notarealmailadress555@notamail.notcom",
+    "registrationdate": "05.05.2005"
+  }
+ ]
+}
