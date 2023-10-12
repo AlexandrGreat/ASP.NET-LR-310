@@ -1,0 +1,58 @@
+﻿using LR5.Models;
+using LR5;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+
+namespace LR5.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger)
+        {
+            _logger = logger;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public async void Index(TimeSpan Time,string Data)
+        {
+            if (Request.Cookies.ContainsKey("NewCookie"))
+            {
+                string? data = Request.Cookies["NewCookie"];
+                await Response.WriteAsync($"Cookie already exists: {data}");
+            }
+            else
+            {
+                try
+                {
+                    DateTime now = DateTime.Now;
+                    Response.Cookies.Append("NewCookie", Data, new CookieOptions { Expires = now.AddSeconds(Time.TotalSeconds) });
+                    await Response.WriteAsync($"Cookie added: {Data}");
+                    await Response.WriteAsync($"\nTime: {Time} \nData: {Data}");
+                }
+                catch
+                {
+                    Response.Redirect("ErrorLoggerPage");  
+                }        
+            }
+            
+        }
+    }
+}
