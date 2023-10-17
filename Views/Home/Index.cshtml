@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Main";
+}
+
+<!doctype html>
+<html>
+<head>
+    <title>LR6</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <h1>Pizza Delievery</h1>
+    <h3>Input the following information to be able to place an order</h3>
+    <form method="post">
+        <p>
+            <label>Pizza count:</label><br />
+            <input type="text" name="Count" value="5" required />
+        </p>
+        <p>
+            <label>Age:</label><br />
+            <input type="text" name="Age" value="16" required />
+        </p>
+        <p>
+            <input type="submit" value="send!" asp-controller="Home" asp-action="Index" />
+        </p>
+    </form>
+</body>
+</html>

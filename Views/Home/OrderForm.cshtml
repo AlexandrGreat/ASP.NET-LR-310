@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Order Form";
+}
+
+<!doctype html>
+<html>
+<head>
+    <title>LR6</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form method="post">
+    <h1>Order <input type="text" name="Current" value="@ViewBag.currentOrder" readonly /> of <input type="text" name="Total" value="@ViewBag.ordered" readonly /> </h1>
+        <p>
+            <label>Pizza type:</label><br/>
+            <select name="PizzaType">
+                <option value="Sicilia">Sicilia</option>
+                <option value="Mafia">Mafia</option>
+                <option value="Margarita">Margarita</option>
+                <option value="Pepperoni">Pepperoni</option>
+                <option value="QuatroFormagi">QuatroFormagi</option>
+                <option value="Panchetta">Panchetta</option>
+            </select>
+        </p>
+        <p>
+            <label>Your total order:</label><br />
+            <input type="text" name="TotalOrder" value="@ViewBag.totalOrder" readonly />
+        </p>
+        <p>
+            <input type="submit" value="send!" asp-controller="Home" asp-action="OrderForm" />
+        </p>
+    </form>
+</body>
+</html>

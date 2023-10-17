@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Check Your Order";
+}
+@using LR6.Models
+@model IEnumerable<PizzaModel>
+<!doctype html>
+<html>
+<head>
+    <title>LR6</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form>
+    <h1>Your have ordered:</h1>
+    <ol>
+        @foreach(var p in Model)
+        {
+            <li>@p.Name</li>
+        }
+    </ol>
+    <p>
+        <label>Address:</label><br />
+        <input type="text" name="Address" required />
+    </p>
+    <p>
+        <label>Name:</label><br />
+        <input type="text" name="Name" required />
+    </p>
+    <p>
+        <input type="submit" value="Accept" asp-controller="Home" asp-action="Index" />      
+    </p>
+    </form>
+    <form>
+        <input type="submit" value="Decline" asp-controller="Home" asp-action="Index" />
+    </form>    
+</body>
+</html>
