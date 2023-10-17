@@ -10,14 +10,14 @@
 </head>
 <body>
     <h1>Pizza Delievery</h1>
-    <h3>Please, input your age to start using this service</h3>
+    <h3>How many pizzas do you want to order?</h3>
     <form method="post">
         <p>
-            <label>Age:</label><br />
-            <input type="text" name="Age" required />
+            <label>Pizza count:</label><br />
+            <input type="text" name="Count" required />
         </p>
         <p>
-            <input type="submit" value="send!" asp-controller="Home" asp-action="Index" />
+            <input type="submit" value="send!" asp-controller="Home" asp-action="OrderBegin" />
         </p>
     </form>
 </body>

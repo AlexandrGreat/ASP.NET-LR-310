@@ -21,12 +21,12 @@ app.MapGet("/ErrorAgePage", async (context) =>
     await context.Response.WriteAsync("You have to be at least 16 years old to make an order");
 });
 
-app.MapGet("/ErrorCountPage", async (context) =>
+app.MapGet("/Home/ErrorCountPage", async (context) =>
 {
     await context.Response.WriteAsync("You have to order at least 1 item");
 });
 
-app.MapGet("/ErrorPage", async (context) =>
+app.MapGet("/Home/ErrorPage", async (context) =>
 {
     await context.Response.WriteAsync("Something went wrong");
 });

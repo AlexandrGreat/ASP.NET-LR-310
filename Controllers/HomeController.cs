@@ -55,12 +55,12 @@ namespace LR6.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public int ordered=0;
+        public int ordered = 0;
         public int currentOrder = 1;
-        public string order="";
+        public string order = "";
 
         [HttpPost]
-        public IActionResult OrderForm(string PizzaType,string Current, string Total,string TotalOrder) 
+        public IActionResult OrderForm(string PizzaType, string Current, string Total, string TotalOrder)
         {
             int next = int.Parse(Current) + 1;
             string order = TotalOrder + "," + PizzaType;
@@ -76,44 +76,27 @@ namespace LR6.Controllers
             {
                 return View("OrderForm");
             }
-            else 
+            else
             {
-                List<string>pizzaList = order.Split(',').ToList();
+                List<string> pizzaList = order.Split(',').ToList();
                 TotalOrderPage(pizzaList);
             }
             return View("TotalOrderPage");
         }
 
         [HttpPost]
-        public IActionResult Index(string Count, string Age)
+        public IActionResult Index(string Age)
         {
             int age = 0;
             if (int.TryParse(Age, out age))
             {
-                if (int.TryParse(Count, out ordered))
+                if (age >= 16)
                 {
-                    if (ordered > 0)
-                    {
-                        if (age >= 16)
-                        {
-                            ViewBag.ordered = ordered;
-                            ViewBag.currentOrder = 1;
-                            ViewBag.totalOrder = "";
-                            return View("OrderForm");
-                        }
-                        else
-                        {
-                            Response.Redirect("ErrorAgePage");
-                        }
-                    }
-                    else
-                    {
-                        Response.Redirect("ErrorCountPage");
-                    }
+                    return View("OrderBegin");
                 }
                 else
                 {
-                    Response.Redirect("ErrorPage");
+                    Response.Redirect("ErrorAgePage");
                 }
             }
             else
@@ -121,6 +104,30 @@ namespace LR6.Controllers
                 Response.Redirect("ErrorPage");
             }
             return View("Index");
+        }
+
+        [HttpPost]
+        public IActionResult OrderBegin(string Count)
+        {
+            if (int.TryParse(Count, out ordered))
+            {
+                if (ordered > 0)
+                {
+                    ViewBag.ordered = ordered;
+                    ViewBag.currentOrder = 1;
+                    ViewBag.totalOrder = "";
+                    return View("OrderForm");
+                }
+                else
+                {
+                    Response.Redirect("ErrorCountPage");
+                }
+            }
+            else
+            {
+                Response.Redirect("ErrorPage");
+            }
+            return View("OrderBegin");
         }
     }
 }
