@@ -1,25 +1,27 @@
-using LR1;
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
-//INTRO
-app.MapGet("/", () => "Welcome to LR1");
-
-//TASK 1
-app.MapGet("/task1", async (context) =>
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
 {
-    Company company = new Company();
-    company.Name = "Google";
-    company.Workers = 187000;
-    await context.Response.WriteAsync($"{company.GetInfo()}");
-});
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
-//TASK 2
-app.MapGet("/task2", async (context) =>
-{
-    Random rnd = new Random();
-    int result = rnd.Next(1, 101);
-    await context.Response.WriteAsync($"Random number: {result}");
-});
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-app.Run(); 
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=File}/{action=DownloadFile}/{id?}");
+
+app.Run();
