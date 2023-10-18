@@ -85,12 +85,9 @@ namespace LR6.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(string Age)
+        public IActionResult Index(User user)
         {
-            int age = 0;
-            if (int.TryParse(Age, out age))
-            {
-                if (age >= 16)
+                if (user.Age >= 16)
                 {
                     return View("OrderBegin");
                 }
@@ -98,11 +95,6 @@ namespace LR6.Controllers
                 {
                     Response.Redirect("ErrorAgePage");
                 }
-            }
-            else
-            {
-                Response.Redirect("ErrorPage");
-            }
             return View("Index");
         }
 
@@ -131,3 +123,5 @@ namespace LR6.Controllers
         }
     }
 }
+
+public record class User(string Name, string Surname, int Age);
