@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@using LR8.Models
+@model IEnumerable<ProductModel>
+
+<style>
+    tr.tablehead{font-weight:700;}
+    td{padding:5px;}
+    tr:nth-child(even){background: #CCC}
+    tr:nth-child(odd){background: #FFF}
+</style>
+
+<!doctype html>
+<html>
+<head>
+    <title>LR8</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>List of products:</h1>
+    <ul>
+    @foreach (var p in Model)
+    {
+        <li>@(p.ID). @p.Name - @(p.Price)$ (@p.CreatedDate)</li>
+    }
+    </ul>       
+<h1>Table of products:</h1>
+<table>
+    <tr class="tablehead"><td>ID</td><td>Name</td><td>Price</td><td>CreatedDate</td></tr>
+    @foreach (var p in Model)
+    {
+        <tr><td>@p.ID</td><td>@p.Name</td><td>@p.Price</td><td>@p.CreatedDate</td></tr>
+    }
+</table>
+</body>
+</html>
+
