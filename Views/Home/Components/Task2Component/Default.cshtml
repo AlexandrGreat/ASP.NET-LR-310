@@ -1,0 +1,35 @@
+﻿<h2>@ViewData["Header"]</h2>
+
+<style>
+    tr.tablehead {
+        font-weight: 700;
+    }
+
+    td {
+        padding: 5px;
+    }
+
+    tr:nth-child(even) {
+        background: #CCC
+    }
+
+    tr:nth-child(odd) {
+        background: #FFF
+    }
+</style>
+
+<table>
+    <tr class="tablehead"><td colspan="2">@ViewBag.WeatherData.name weather info</td></tr>
+    <tr>
+        <td>Weather: @ViewBag.WeatherData.weather[0].main</td>
+        <td>Description: @ViewBag.WeatherData.weather[0].description</td>
+    </tr>
+    <tr>
+        <td>Temperature: @ViewBag.WeatherData.main.temp</td>
+        <td>Wind speed: @ViewBag.WeatherData.wind.speed</td>
+    </tr>
+    <tr>
+        <td>Pressure: @ViewBag.WeatherData.main.pressure</td>
+        <td>Humidity: @ViewBag.WeatherData.main.humidity</td>
+    </tr>
+</table>

@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!doctype html>
+<html>
+<head>
+    <title>LR9</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    @await Component.InvokeAsync("Task1Component")
+    <hr/>
+    @await Component.InvokeAsync("Task2Component",new{city="Mykolayiv",country="ua"})
+</body>
+</html>

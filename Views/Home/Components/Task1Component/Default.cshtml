@@ -1,0 +1,24 @@
+﻿<h2>@ViewData["Header"]</h2>
+
+<style>
+    tr.tablehead {
+        font-weight: 700;
+    }
+    td {
+        padding: 5px;
+    }
+    tr:nth-child(even) {
+        background: #CCC
+    }
+    tr:nth-child(odd) {
+        background: #FFF
+    }
+</style>
+
+<table>
+    <tr class="tablehead"><td>ID</td><td>Name</td><td>Price</td></tr>
+    @foreach (var p in ViewBag.Products)
+    {
+        <tr><td>@p.ID</td><td>@p.Name</td><td>@p.Price</td></tr>
+    }
+</table>
