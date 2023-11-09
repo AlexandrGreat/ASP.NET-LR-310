@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Validation";
 }
 
@@ -17,17 +17,14 @@
         <p>
             <label asp-for="Name" >Name, surname:</label><br />
             <input type="text" asp-for="Name" />
-            <span asp-validation-for="Name"/>
         </p>
         <p>
             <label asp-for="Email" >Email:</label><br />
             <input type="text" asp-for="Email" />
-            <span asp-validation-for="Email" />
         </p>
         <p>
             <label asp-for="Date" >Date:</label><br />
             <input type="date" asp-for="Date" />
-            <span asp-validation-for="Date" />
         </p>
         <label asp-for="Product">Select product:</label><br />
         <select asp-for="Product">
