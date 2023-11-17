@@ -1,3 +1,4 @@
+//This project is just modificated LR10 project with filters
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
