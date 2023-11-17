@@ -1,0 +1,14 @@
+﻿@model LR12.Models.CompanyModel
+
+<h2>Create user</h2>
+<form asp-action="create" asp-controller="home">
+    <p>
+        <label asp-for="Name">Name</label><br/>
+        <input type="text" asp-for="Name"/>
+    </p>
+    <p>
+        <label asp-for="Workers">Workers</label><br />
+        <input type="text" asp-for="Workers" />
+    </p>
+    <input type="submit" value="Send">
+</form>
