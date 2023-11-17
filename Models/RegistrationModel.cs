@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+//This project is just modificated LR10 project with filters
+using System.ComponentModel.DataAnnotations;
 
 namespace LR10.Models
 {
