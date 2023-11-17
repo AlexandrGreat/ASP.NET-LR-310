@@ -1,4 +1,5 @@
-﻿using LR10.Models;
+//This project is just modificated LR10 project with filters
+using LR10.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using LR10.Filters;
